@@ -1,0 +1,86 @@
+package actions.tree;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+
+import javax.swing.AbstractAction;
+import javax.swing.ImageIcon;
+import javax.swing.KeyStroke;
+import javax.swing.tree.TreePath;
+
+import application.Application;
+import gui.MainFrame;
+import gui.tree.Tree;
+import model.TreeNode;
+
+/**
+ * Singleton class that extends {@link AbstractAction}. It collapses the
+ * currently selected {@link TreeNode}s in the {@link MainFrame}'s {@link Tree}.
+ * 
+ * @author Milan Radeta
+ * @author Borko Arsović
+ * @author Ivan Divljak
+ * @see AbstractAction
+ * @see MainFrame
+ * @see Tree
+ *
+ */
+public class ActionCollapseNode extends AbstractAction {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Represents the only instance of {@link ActionCollapseNode} object.
+	 */
+	private static ActionCollapseNode instance = null;
+
+	/**
+	 * Returns the only instance of {@link ActionCollapseNode} object. If it does not
+	 * exist, it will be created.
+	 * 
+	 * @return {@link ActionCollapseNode}
+	 */
+	public static ActionCollapseNode getInstance() {
+		if (instance == null) {
+			instance = new ActionCollapseNode();
+		}
+		return instance;
+	}
+
+	/**
+	 * {@link ActionCollapseNode} private constructor. Initializes the object with
+	 * name and short description from localization properties file, as well
+	 * with small icon and accelerator key (Ctrl + P).
+	 * 
+	 */
+	private ActionCollapseNode() {
+		putValue(NAME, Application.getResourceBundle().getString("CollapseNode"));
+		putValue(SMALL_ICON, new ImageIcon(Application.class.getResource("/icons/collapse.png")));
+		putValue(SHORT_DESCRIPTION, Application.getResourceBundle().getString("CollapseNodeDesc"));
+		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_P, ActionEvent.CTRL_MASK));
+	}
+
+	/**
+	 * Collapses the currently selected {@link TreeNode}s in {@link MainFrame}'s {@link Tree}.
+	 * 
+	 * @see TreeNode
+	 * @see MainFrame
+	 * @see Tree
+	 */
+	public void actionPerformed(ActionEvent e) {
+		MainFrame.getInstance().getStatusBar()
+				.setMessage(Application.getResourceBundle().getString("CollapseNodeStart"));
+
+		Tree tree = Tree.getInstance();
+		TreePath selPath = tree.getSelectionPath();
+		TreeNode selNode = (TreeNode) selPath.getLastPathComponent();
+		ArrayList<TreeNode> offsprings = selNode.getOffspringNodes();
+		for (int i = offsprings.size() - 1; i >= 0; i--) {
+			Tree.getInstance().collapsePath(new TreePath(offsprings.get(i).getPath()));
+		}
+		tree.collapsePath(selPath);
+		MainFrame.getInstance().getStatusBar()
+				.setMessage(Application.getResourceBundle().getString("CollapseNodeFinish"));
+	}
+
+}

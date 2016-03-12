@@ -1,0 +1,37 @@
+{
+  "code": "Workspace",
+  "type": "root",
+  "children": [
+    {
+      "code": "SERVISNA_STANICA",
+      "type": "project",
+      "children": [
+        {
+          "code": "ZAJEDNICKO",
+          "type": "package",
+          "children": [
+            {
+              "code": "TERITORIJALNA_ORGANIZACIJA",
+              "type": "package",
+              "children": [
+                {
+                  "code": "DRZAVA",
+                  "type": "table",
+                  "columns": [
+                    {
+                      "code": "DR_OZNAKA",
+                      "semantic": "DR_NAZIV"
+                    },
+                    {
+                      "code": "DR_NAZIV"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

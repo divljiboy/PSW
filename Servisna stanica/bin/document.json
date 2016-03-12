@@ -1,0 +1,453 @@
+{
+	"code": "Workspace",
+	"type": "root",
+	"children": 
+	[
+		{	
+    		"code": "SERVISNA_STANICA",
+			"type": "project",
+    		"children":
+  			[
+    			{
+      				"code": "ZAJEDNICKO",
+					"type": "package",
+      				"children":
+  					[
+						{
+							"code": "TERITORIJALNA_ORGANIZACIJA",
+							"type": "package",
+							"children":
+							[
+								{
+									"code": "DRZAVNO_UREDJENJE",
+									"type": "table",
+									"columns":
+									[
+										{
+											"code": "DUR_OZNAKA",
+											"semantic": "DUR_NAZIV"
+										}
+									]
+								},
+								{
+									"code": "DRZAVA",
+									"type": "table",
+									"columns":
+									[
+										{
+											"code": "DR_OZNAKA",
+											"semantic": "DR_NAZIV"
+										}
+									],
+									"children":
+									[
+										{
+											"code": "ISTORIJA_UREDJENJA",
+											"type": "table"
+										},
+										{
+											"code": "NASELJENO_MESTO",
+											"type": "table",
+											"columns":
+											[
+												{
+													"code": "NM_IDENTIFIKATOR",
+													"semantic": "NM_NAZIV"
+												}
+											],
+											"children":
+											[
+												{
+													"code": "OPSTINA",
+													"type": "table",
+													"columns":
+													[	
+														{
+															"code": "OP_OZNAKA",
+															"semantic": "OP_NAZIV"
+														}
+														
+													],
+													"children":
+													[								
+														{
+															"code": "STRUKTURA_LOKALNE_SAMOUPRAVE",
+															"type": "table"
+														}
+													]
+												}
+											]
+										},
+										{
+											"code": "SASTAV_DRZAVE",
+											"type": "table"
+										}
+									]
+								},
+								{
+									"code": "TIP_REGIONA",
+									"type": "table",
+									"columns":
+									[
+										{
+											"code": "TR_OZNAKA",
+											"semantic": "TR_NAZIV"
+										}
+										
+									]
+								},
+								{
+									"code": "REGION",
+									"type": "table",
+									"columns":
+									[
+										{
+											"code": "REG_OZNAKA",
+											"semantic": "REG_NAZIV"
+										}
+									]
+								},
+								{
+									"code": "STRUKTURA_REGIONA",
+									"type": "table"
+								}
+							]
+						},
+						{
+							"code": "ORGANIZACIJA_POSLOVNIH_SISTEMA",
+							"type": "package",
+							"children":
+							[
+								{
+									"code": "ORGANIZACIONA_STRUKTURA",
+									"type": "package",
+									"children":
+									[
+										{
+											"code": "GRUPA_DELATNOSTI",
+											"type": "table",
+											"columns":
+											[
+												{
+													"code": "GD_OZNAKA",
+													"semantic":"GD_NAZIV"
+												}
+												
+											],
+											"children": 
+											[
+												{
+													"code": "POSLOVNI_SISTEM",
+													"type": "table",
+													"columns":
+													[
+														{
+															"code": "PS_OZNAKA",
+															"semantic": "PS_NAZIV"
+														}
+													],
+													"children":
+													[
+														{
+															"code": "TIP",
+															"type": "table",
+															"columns":
+															[
+																{
+																	"code": "TIP_OZNAKA",
+																	"semantic": "TIP_NAZIV"
+																}
+															]
+														},
+														{
+															"code": "AKT_O_ORGANIZACIJI",
+															"type": "table",
+															"children":
+															[
+																{
+																	"code": "ORGANIZACIONA_SEMA",
+																	"type": "table"
+																}
+															]
+														},
+														{
+															"code": "ORGANIZACIONE_JEDINICE",
+															"type": "table",
+															"columns":
+															[
+																
+																{
+																	"code": "OJ_OZNAKA",
+																	"semantic":"OJ_NAZIV"
+																}
+															],
+															"children":
+															[
+																{
+																	"code": "ORGANIZACIONA_STRUKTURA",
+																	"type": "table"
+																},
+																{
+																	"code": "DODELJENE_DELATNOSTI",
+																	"type": "table"
+																}
+															]
+														}
+													]
+												}
+											]
+										},
+										{
+											"code": "SEKTOR",
+											"type": "table",
+											"columns":
+											[
+												{
+													"code": "SE_SEKTOR",
+													"semantic": "SE_NAZIV"
+												}
+											],
+											"children":
+											[
+												{
+													"code": "OBLAST",
+													"type": "table",
+													"columns":
+													[
+														{
+															"code": "OBL_OBLAST",
+															"semantic": "OBL_NAZIV"
+														}
+													],
+													"children":
+													[
+														{
+															"code": "GRANA",
+															"type": "table",
+															"columns":
+															[
+																{
+																	"code": "GRA_GRANA",
+																	"semantic": "GRA_NAZIV"
+																}
+															],
+															"children":
+															[
+																{
+																	"code": "GRUPA_POSLOVA",
+																	"type": "table",
+																	"columns":
+																	[
+																		{
+																			"code": "GRU_GRUPA",
+																			"semantic": "GRU_NAZIV"
+																		}
+																	],
+																	"children":
+																	[
+																		{
+																			"code": "REGISTROVAN_ZA",
+																			"type": "table"
+																	    }
+																	]
+																}
+															]
+														}											
+													]
+												}
+											]
+										}
+								    ]
+								},
+								{
+									"code": "MATERIJALNI_RESURSI_I_PROSTOR",
+									"type": "package",
+									"children":
+									[
+										{
+											"code": "NAMENA_OBJEKTA_I_PROSTORA",
+											"type": "table",
+											"columns":
+											[
+												{
+													"code": "NAM_OZNAKA",
+													"semantic":"NAM_OPIS"
+												}
+											],
+											"children":
+											[
+												{
+													"code": "OBJEKTI_I_ZGRADE",
+													"type": "table",
+													"columns":
+													[
+														{
+															"code": "OBJ_OZNAKA",
+															"semantic":"OBJ_NAZIV"
+														}
+													],
+													"children":
+													[
+														{
+															"code": "PROSTORIJE",
+															"type": "table",
+															"columns":
+															[
+																{
+																	"code": "PRO_PROSTORIJA",
+																	"semantic":"PRO_NAZIV"
+																}
+															],
+															"chidren":
+															[
+																{
+																	"code": "KORISTI_PROSTORIJE",
+																	"type": "table",
+																	"columns":
+																	[
+																		{
+																			"name": "Koristi jedinica",
+																			"code": "ORG_OJ_OZNAKA"
+																		}
+																	]
+															    },
+															    {
+																	"code": "SEDE_U_PROSTORIJI",
+																	"type": "table"
+															    }
+															]
+														},
+														{
+															"code": "KORISTI_OBJEKTE",
+															"type": "table"
+													    }
+													]
+												}		
+											]
+										}
+									]
+								},
+								{
+									"code": "LJUDSKI_RESURSI",
+									"type": "package",
+									"children":
+									[
+										{
+											"code": "REGISTAR_ZAPOSLENIH",
+											"type": "table",
+											"columns":
+											[
+												{
+													"code": "ZAP_REDNI_BROJ",
+													"semantic":"ZAP_REDNI_BROJ"
+												}
+											],
+											"children":
+											[
+												 {
+													"code": "RASPORED_NA_RADNA_MESTA",
+													"type": "table"
+											    }
+									    	]
+										},
+									    {
+											"code": "SISTEMATIZACIJA_RADNIH_MESTA",
+											"type": "table",
+											"columns":
+											[
+												{
+													"code": "RM_OZNAKA",
+													"semantic":"RM_NAZIV"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"code": "SERVISNA_STANICA",
+					"type": "package",
+					"children":
+					[
+						{
+							"code": "GRUPNO",
+							"type": "package",
+							"children":
+							[
+								{
+					  				"code": "MERNE_JEDINICE",
+									"type": "table",
+					  				"columns":
+									[
+										{
+											"code": "JK_OZNAKA",
+											"semantic": "JK_NAZIV"
+										}
+									]
+								},
+								{
+					  				"code": "ROBA",
+									"type": "table",
+					  				"columns":
+									[
+										{
+											"code": "RO_OZNAKA",
+											"semantic": "RO_OPIS"
+										}
+									],
+									"children":
+									[
+										{
+											"code": "MOGU_DA_PRODAJU",
+											"type": "table"
+										}
+									]
+								},
+								{
+					  				"code": "USLUGA",
+									"type": "table",
+					  				"columns":
+									[
+										{
+											"code": "U_OZNAKA",
+											"semantic": "U_OPIS"
+										}
+									],
+									"children":
+									[
+										{
+											"code": "MOGU_DA_VRSE",
+											"type": "table"
+										}
+									]
+								}
+							]
+						},
+						
+						{
+			  				"code": "T1",
+							"type": "package",
+			  				"children":
+							[
+								{
+					  				"code": "RACUN_ZA_ROBU",
+									"type": "table",
+									"children":
+									[
+										{
+							  				"code": "STAVKE_ROBE",
+											"type": "table"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
